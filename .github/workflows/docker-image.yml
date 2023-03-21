@@ -1,5 +1,4 @@
-
-name: publish
+name: publish2
 
 on:
   push:
@@ -20,43 +19,7 @@ jobs:
         with:
           platforms: all
       - name: Set up Docker Buildx
-        id: buildxname: Docker Image CI
-2
-​
-3
-on:
-4
-  push:
-5
-    branches: [ "main" ]
-6
-  pull_request:
-7
-    branches: [ "main" ]
-8
-​
-9
-jobs:
-10
-​
-11
-  build:
-12
-​
-13
-    runs-on: ubuntu-latest
-14
-​
-15
-    steps:
-16
-    - uses: actions/checkout@v3
-17
-    - name: Build the Docker image
-18
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-19
-
+        id: buildx
         uses: docker/setup-buildx-action@v1
         with:
           version: latest
@@ -72,7 +35,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: sajiljoseph/nitter:latest,sajiljoseph/nitter:${{ github.sha }}
+          tags: zedeus/nitter:latest,zedeus/nitter:${{ github.sha }}
       - name: Build and push ARM64 Docker image
         uses: docker/build-push-action@v2
         with:
@@ -80,4 +43,4 @@ jobs:
           file: ./Dockerfile.arm64
           platforms: linux/arm64
           push: true
-          tags: sajiljoseph/nitter:latest-arm64,sajiljoseph/nitter:${{ github.sha }}-arm64
+          tags: zedeus/nitter:latest-arm64,zedeus/nitter:${{ github.sha }}-arm64
