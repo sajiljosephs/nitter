@@ -36,7 +36,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: sajiljosephs/nitter:latest,sajiljosephs/nitter:${{ github.sha }}
+          tags: sajiljoseph/nitter:latest,sajiljoseph/nitter:${{ github.sha }}
       - name: Build and push ARM64 Docker image
         uses: docker/build-push-action@v2
         with:
@@ -44,4 +44,4 @@ jobs:
           file: ./Dockerfile.arm64
           platforms: linux/arm64
           push: true
-          tags: sajiljosephs/nitter:latest-arm64,sajiljosephs/nitter:${{ github.sha }}-arm64
+          tags: sajiljoseph/nitter:latest-arm64,sajiljoseph/nitter:${{ github.sha }}-arm64
