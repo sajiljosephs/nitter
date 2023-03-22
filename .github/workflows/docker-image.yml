@@ -6,6 +6,7 @@ on:
       - "README.md"
     branches:
       - master
+
 jobs:
   build-docker:
     runs-on: ubuntu-latest
